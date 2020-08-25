@@ -23,83 +23,18 @@
 
 <body>
 
-    <x-package-alert/>
-
-    
-    <!--====================  preloader area ====================-->
-    <div class="preloader-activate preloader-active">
-        <div class="preloader-area-wrap">
-            <div class="spinner d-flex justify-content-center align-items-center h-100">
-                <div class="img-loader"></div>
-            </div>
-        </div>
-    </div>
-    <!--====================  End of preloader area  ====================-->
+    <x-alert/>
+    <x-preloader/>
     <div class="body-wrapper space-pt--70 space-pb--120">
-
-        <x-package-header/>
-        <x-package-navbar/>
-
-        <div class="hero-slider bg-color--grey space-y--10">
-            <div class="container">
-                <div class="row row-10">
-                    <div class="col-12">
-                        <div class="hero-slider-wrapper">
-                            <div class="hero-slider-item d-flex bg-img" data-bg="assets/img/hero-slider/slider-1.jpg">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!-- hero slider content -->
-                                            <div class="hero-slider-content">
-                                                <h1 class="hero-slider-content__title space-mb--10">Most popular <br>
-                                                    Hand Bag</h1>
-                                                <p class="hero-slider-content__text">GET 30% OFF</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hero-slider-item d-flex bg-img" data-bg="assets/img/hero-slider/slider-2.jpg">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!-- hero slider content -->
-                                            <div class="hero-slider-content">
-                                                <h1 class="hero-slider-content__title space-mb--10">New Arrival <br>
-                                                    Sport Shoes</h1>
-                                                <p class="hero-slider-content__text">GET 40% OFF</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hero-slider-item d-flex bg-img" data-bg="assets/img/hero-slider/slider-3.jpg">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!-- hero slider content -->
-                                            <div class="hero-slider-content">
-                                                <h1 class="hero-slider-content__title space-mb--10">Featured Product
-                                                    <br> Summer Clothes</h1>
-                                                <p class="hero-slider-content__text">GET 50% OFF</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--====================  End of hero slider  ====================-->
-        <!--====================  category slider ====================-->
+        <x-header/>
+        <x-navbar/>
+        <x-slider/>
         <div class="category-slider-area bg-color--grey space-pb--25 space-mb--25">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <!-- section title -->
-                        <h2 class="section-title space-mt--10 space-mb--20">Categories</h2>
+                        <h2 class="section-title space-mt--10 space-mb--20">دسته بندی</h2>
                         <!-- category slider -->
                         <div class="category-slider-wrapper">
                             <div class="category-item">
@@ -491,6 +426,10 @@
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="/js/app.js"></script>
+
+
+
 </body>
 
 </html>
