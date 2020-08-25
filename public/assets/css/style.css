@@ -1,39 +1,35 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+@font-face {
+    font-family: "Iran Yekan Light";
+    src: url("../fonts/yekan/light/light/iran-yekan-light.eot");
+    src: url("../fonts/yekan/light/light/iran-yekan-light.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/yekan/light/iran-yekan-light.woff") format("woff"),
+    url("./fonts/yekan/light/iran-yekan-light.woff2") format("woff2"),
+    url("./fonts/yekan/light/iran-yekan-light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal
+}
 
-/*=============================================
-=            Index            =
-=============================================
+@font-face {
+    font-family: "Iran Yekan";
+    src: url("../fonts/yekan/normal/normal/iran-yekan-normal.eot");
+    src: url("../fonts/yekan/normal/normal/iran-yekan-normal.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/yekan/normal/iran-yekan-normal.woff") format("woff"),
+    url("../fonts/yekan/normal/iran-yekan-normal.woff2") format("woff2"),
+    url("../fonts/yekan/normal/iran-yekan-normal.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
 
-  -> Default
-  -> Common
-  -> Helper
-  -> Spacing
-  -> Header
-  -> Footer
-  -> Button
-  -> Section Title
-  -> Backgrounds
-  -> Breadcrumb
-  -> Preloader
-  -> Hero Slider
-  -> Category Slider
-  -> Product
-  -> Contact Content
-  -> Profile
-  -> Authentication
-  -> Welcome
-  -> Notification
-  -> Chat
-  -> Cart
-  -> Checkout
-
-/*=====  End of Index  ======*/
-
-/*=============================================
-=            Default            =
-=============================================*/
-
-/*-- Google Font --*/
+@font-face {
+    font-family: "Iran Yekan Bold";
+    src: url("../fonts/yekan/bold/iran-yekan-bold.eot");
+    src: url("../fonts/yekan/bold/iran-yekan-bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/yekan/bold/iran-yekan-bold.woff") format("woff"),
+    url("../fonts/yekan/bold/iran-yekan-bold.woff2") format("woff2"),
+    url("../fonts/yekan/bold/iran-yekan-bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
 
 *,
 *::after,
@@ -48,7 +44,7 @@ body {
 }
 
 body {
-	font-family: "Roboto", sans-serif;
+	font-family: "Iran Yekan", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.7;
@@ -61,7 +57,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Roboto", sans-serif;
+	font-family: "Iran Yekan", sans-serif;
 	font-weight: 500;
 	line-height: 1;
 	margin-top: 0;
