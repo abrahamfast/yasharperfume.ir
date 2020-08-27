@@ -10,4 +10,9 @@ class HomePage extends Controller
     {
     	return view('home');
     }
+
+    public function show($id)
+    {
+    	return view('show');
+    }
 }
