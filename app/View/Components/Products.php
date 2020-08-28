@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Illuminate\Http\Request;
-use App\Products;
+use App\Products as ProductsModel;
 
 class Products extends Component
 {
@@ -16,7 +16,7 @@ class Products extends Component
      */
     public function __construct(Request $request)
     {
-        $this->products = Products::all();
+        $this->products = ProductsModel::all();
     }
 
     /**
