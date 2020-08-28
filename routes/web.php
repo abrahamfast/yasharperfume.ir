@@ -2,5 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomePage@index');
-Route::get('/{slug}', 'HomePage@show');
+Route::get('/', 'PageController@index');
+Route::get('shop', 'ShopController@index');
+Route::get('shop/{slug}', 'ShopController@show');
