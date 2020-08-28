@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Attachment extends Model
 {
     protected $table = 'attachment';
-    protected $cast = [
+    protected $casts = [
     	'id' => 'string'
     ];
 }
