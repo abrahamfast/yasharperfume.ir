@@ -2,7 +2,7 @@
             <div class="shop-grid-products-wrapper space-mt--30 space-mb-m--20">
                 <div class="container">
                     <div class="row row-10">
-                    	@forelse($products['list'] as $product)
+                    	@forelse($products as $product)
 	                        <div class="col-6">
 	                            <div class="grid-product space-mb--20">
 	                                <div class="grid-product__image">
@@ -10,7 +10,7 @@
 	                                        <img src="{{ route('asset', $product['coverName']?? 'null' ) }}" class="img-fluid" alt="">
 	                                    </a>
 	                                    <button class="icon">
-	                                    	<img src="assets/img/icons/heart-dark.svg" class="injectable"alt="">
+	                                    	<img src="/assets/img/icons/heart-dark.svg" class="injectable"alt="">
 	                                    </button>
 	                                </div>
 	                                <div class="grid-product__content">
