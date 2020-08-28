@@ -7,7 +7,7 @@
 	                            <div class="grid-product space-mb--20">
 	                                <div class="grid-product__image">
 	                                    <a href="/shop/{{ $product['url'] }}">
-	                                        <img src="assets/img/products/product1.png" class="img-fluid" alt="">
+	                                        <img src="{{ route('asset', $product['name']."_".$product['id']) }}" class="img-fluid" alt="">
 	                                    </a>
 	                                    <button class="icon">
 	                                    	<img src="assets/img/icons/heart-dark.svg" class="injectable"alt="">
