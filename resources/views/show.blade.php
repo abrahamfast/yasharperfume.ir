@@ -3,7 +3,7 @@
 @section('content')
     <x-header/>
     <x-navbar/>
-    <x-show-products :slug="$slug"/>
+    <x-show-products :slug="$slug" :id="$id"/>
 
 
 

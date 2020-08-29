@@ -17,9 +17,10 @@ class ShowProducts extends Component
      *
      * @return void
      */
-    public function __construct($slug)
+    public function __construct($slug, $id)
     {
         $this->slug = $slug;
+        $this->id = $id;
     }
 
     /**
@@ -29,11 +30,8 @@ class ShowProducts extends Component
      */
     public function render()
     {
-        $product = Product::list([
-            'where[0][type]' => 'like',
-            'where[0][attribute]' => 'url',
-            'where[0][value]' => $this->slug,
-        ]);
+        $this->product = Product::read($this->id);
+        abort_if(!$this->product, 404);
 
         return view('components.show-products');
     }

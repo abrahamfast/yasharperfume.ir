@@ -12,8 +12,8 @@ class ShopController extends Controller
 		return view('shop');
 	}
 
-	public function show($slug)
+	public function show($slug, $id)
     {
-    	return view('show', compact('slug'));
+    	return view('show', compact('slug', 'id'));
     }
 }

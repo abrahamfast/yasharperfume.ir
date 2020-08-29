@@ -6,7 +6,7 @@
 	                        <div class="col-6">
 	                            <div class="grid-product space-mb--20">
 	                                <div class="grid-product__image">
-	                                    <a href="/shop/{{ $product['url'] }}">
+	                                    <a href="/shop/{{ $product['url'].'/'.$product['id'] }}">
 	                                        <img src="{{ route('asset', $product['coverName']?? 'null' ) }}" class="img-fluid" alt="">
 	                                    </a>
 	                                    <button class="icon">
@@ -14,7 +14,7 @@
 	                                    </button>
 	                                </div>
 	                                <div class="grid-product__content">
-	                                    <h3 class="title"><a href="/shop/{{ $product['url'] }}">{{ $product['name'] }}</a></h3>
+	                                    <h3 class="title"><a href="/shop/{{ $product['url'].'/'.$product['id'] }}">{{ $product['name'] }}</a></h3>
 	                                    <span class="category">{{ $product['categoryName'] }}</span>
 	                                    <div class="price">
 	                                        <span class="main-price">{{ $product['costPriceConverted'] }}</span>

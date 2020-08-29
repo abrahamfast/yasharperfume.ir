@@ -26,7 +26,7 @@
 
     <x-alert/>
     <x-preloader/>
-    <div class="body-wrapper space-pt--70 space-pb--120">
+    <div class="body-wrapper space-pt--70 space-pb--120" id="app">
 
         @yield('content')
 <x-package-footer/>
@@ -46,8 +46,8 @@
     <script src="/assets/js/plugins/plugins.min.js"></script>
 
     <!-- Main JS -->
-    <script src="/assets/js/main.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/assets/js/main.js"></script>
 
 
 
