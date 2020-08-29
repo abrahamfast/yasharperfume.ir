@@ -6,19 +6,21 @@ use Illuminate\View\Component;
 use Illuminate\Http\Request;
 use Acme\Entities\Product;
 
-class Products extends Component
+class ShowProducts extends Component
 {
-    public $products;
+    public $slug;
+
+    public $product;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Request $request)
+    public function __construct($slug)
     {
-        $this->products = Product::list();
+        $this->slug = $slug;
     }
-
 
     /**
      * Get the view / contents that represent the component.
@@ -27,6 +29,12 @@ class Products extends Component
      */
     public function render()
     {
-        return view('components.products');
+        $product = Product::list([
+            'where[0][type]' => 'like',
+            'where[0][attribute]' => 'url',
+            'where[0][value]' => $this->slug,
+        ]);
+
+        return view('components.show-products');
     }
 }

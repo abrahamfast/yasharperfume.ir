@@ -12,10 +12,11 @@ class Product extends Endpoint implements EntitiesInterface
 		return (new self)->endpoint()->request('GET', 'product', $filter);
 	}
 
-	public function read($id, $filter = [])
+	public static function read($id, $filter = [])
 	{
-		return $this->endpoint()->request('GET', "product/$id", $filter);
+		return (new self)->endpoint()->request('GET', "product/$id", $filter);
 	}
+
 
 	public function update($id, $data)
 	{

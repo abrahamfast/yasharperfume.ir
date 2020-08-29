@@ -6,7 +6,7 @@
                             <!-- header logo -->
                             <div class="header-logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo.png" class="img-fluid" alt="">
+                                    <img src="/assets/img/logo.png" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -15,14 +15,14 @@
                             <div class="header-search">
                                 <form>
                                     <input type="text" id="header-search-input" placeholder="Search anything">
-                                    <img src="assets/img/icons/search.svg" class="injectable" alt="">
+                                    <img src="/assets/img/icons/search.svg" class="injectable" alt="">
                                 </form>
                             </div>
                         </div>
                         <div class="col-auto">
                             <!-- header menu trigger -->
                             <button class="header-menu-trigger" id="header-menu-trigger">
-                                <img src="assets/img/icons/menu.svg" class="injectable" alt="">
+                                <img src="/assets/img/icons/menu.svg" class="injectable" alt="">
                             </button>
                         </div>
                     </div>
