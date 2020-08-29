@@ -989,7 +989,8 @@ header .header-menu-trigger:focus {
 
 .offcanvas-navigation li span {
 	display: block;
-	margin-right: 15px;
+	_margin-right: 15px;
+	margin-left: 15px;
 }
 
 .offcanvas-navigation li span svg {
@@ -1001,6 +1002,7 @@ header .header-menu-trigger:focus {
 	display: block;
 	width: 100%;
 	color: #06142d;
+	text-align: right;
 }
 
 /* search keyword */
@@ -1137,7 +1139,7 @@ header .header-menu-trigger:focus {
 
 .footer-nav-single:hover,
 .footer-nav-single.active {
-	background-color: #4a44f2;
+	background-color: #FFC107;
 }
 
 .footer-nav-single:hover span,
@@ -1478,12 +1480,12 @@ header .header-menu-trigger:focus {
 
 .featured-product__content .icon button svg * {
 	fill: transparent;
-	stroke: #4a44f2;
+	stroke: #FFC107;
 }
 
 .featured-product__content .icon button:hover svg *,
 .featured-product__content .icon button.active svg * {
-	fill: #4a44f2;
+	fill: #FFC107;
 }
 
 /* grid product */
@@ -1517,7 +1519,7 @@ header .header-menu-trigger:focus {
 
 .grid-product__image .icon:hover,
 .grid-product__image .icon.active {
-	background-color: #4a44f2;
+	background-color: #FFC107;
 }
 
 .grid-product__image .icon:hover svg *,
@@ -1616,7 +1618,7 @@ header .header-menu-trigger:focus {
 
 .list-product .icon:hover,
 .list-product .icon.active {
-	background-color: #4a44f2;
+	background-color: #FFC107;
 }
 
 .list-product .icon:hover svg *,
