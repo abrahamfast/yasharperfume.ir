@@ -33,4 +33,8 @@ if (process.env.MIX_ENV_MODE === 'production') {
 
 const app = new Vue({
     el: '#app',
+    data: {
+    	cartList: []
+    }
+
 });

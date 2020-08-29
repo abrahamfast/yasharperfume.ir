@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <shop-product-button-component :productId='{{ $product['id'] }}'></shop-product-button-component>
+        <shop-product-button-component product-id="{{ $product['id'] }}"></shop-product-button-component>
 
 
 

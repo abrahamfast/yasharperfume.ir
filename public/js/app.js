@@ -1917,7 +1917,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['productId'],
-  mounted: function mounted() {}
+  data: function data() {
+    return {
+      status: true
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    addToCard: function addToCard() {
+      if (this.status) {
+        var items = localStorage.getItem('cartList');
+        items.push(this.productId);
+        localStorage.setItem('cartList', items);
+        window.localStorage;
+        this.$root.cartList.push(this.productId);
+        this.status = false;
+        return true;
+      }
+
+      this.$root.cartList.pop(this.productId);
+      this.status = true;
+      return false;
+    },
+    buyNow: function buyNow() {
+      console.log('buy now');
+    }
+  }
 });
 
 /***/ }),
@@ -37504,20 +37529,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "shop-product-button" }, [
-      _c("button", { staticClass: "cart" }, [_vm._v("ADD TO CART")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "buy" }, [_vm._v("BUY NOW")])
+  return _c("div", { staticClass: "shop-product-button" }, [
+    _c("button", { staticClass: "cart", on: { click: _vm.addToCard } }, [
+      _vm._v("ADD TO CART")
+    ]),
+    _vm._v(" "),
+    _c("button", { staticClass: "buy", on: { click: _vm.buyNow } }, [
+      _vm._v("BUY NOW")
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49723,7 +49745,10 @@ if (process.env.MIX_ENV_MODE === 'production') {
 }
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    cartList: []
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
