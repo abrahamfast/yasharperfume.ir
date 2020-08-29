@@ -3,7 +3,7 @@
                 <div class="row row-10">
                     <div class="col-12">
                         <div class="hero-slider-wrapper">
-                            @forelse($sliderItems['list'] as $item)
+                            @foreach($sliderItems['list'] as $item)
                                 <div class="hero-slider-item d-flex bg-img" data-bg="{{ route('asset', $item['imageSliderName'] ?? 'null' ) }}">
                                     <div class="container">
                                         <div class="row">
@@ -21,10 +21,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div
-                            @empty
-                                loading...
-                            @endforelse
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

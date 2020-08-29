@@ -1355,7 +1355,7 @@ header .header-menu-trigger:focus {
 }
 
 .hero-slider-content {
-	width: 300px;
+	_width: 300px;
 	max-width: 100%;
 }
 
