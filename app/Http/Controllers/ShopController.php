@@ -12,7 +12,7 @@ class ShopController extends Controller
 		return view('shop');
 	}
 
-	public function show($slug, $id)
+	public function show($id, $slug)
     {
     	return view('show', compact('slug', 'id'));
     }

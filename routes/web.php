@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@index');
 Route::get('shop', 'ShopController@index');
-Route::get('shop/{slug}/{id}', 'ShopController@show');
+Route::get('shop/{id}/{slug}', 'ShopController@show');
 
 Route::get('asset/{slug}', function($slug){
     $attachment = \App\Attachment::where('name', $slug)->first();
