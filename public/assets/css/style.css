@@ -1174,11 +1174,12 @@ header .header-menu-trigger:focus {
 }
 
 .section-title a {
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: 400;
 	position: absolute;
 	top: 50%;
-	right: 0;
+	_right: 0;
+	left: 0;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
