@@ -3,11 +3,11 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Acme\Entities\Product;
+use Acme\Entities\ProductCategory as Category;
 
-class Slider extends Component
+class ProductCategory extends Component
 {
-    public $sliderItems;
+    public $productCategory;
     /**
      * Create a new component instance.
      *
@@ -15,12 +15,7 @@ class Slider extends Component
      */
     public function __construct()
     {
-        $this->sliderItems = Product::list([
-            'select' => 'name,sliderCaption,imageSliderName',
-            'where[0][type]' => 'equals',
-            'where[0][attribute]' => 'slider',
-            'where[0][value]' => true
-        ]);
+        $this->productCategory = Category::list(['order' => 'order']);
     }
 
     /**
@@ -30,6 +25,6 @@ class Slider extends Component
      */
     public function render()
     {
-        return view('components.slider');
+        return view('components.product-category');
     }
 }

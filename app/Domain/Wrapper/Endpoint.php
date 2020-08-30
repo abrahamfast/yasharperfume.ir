@@ -8,6 +8,8 @@ use SnapyCloud\PhpApi\Client\SnapyClient;
 class Endpoint
 {
 	protected $client;
+	protected $query;
+
 	public function __construct()
 	{
 		$this->client = new SnapyClient(
@@ -19,4 +21,5 @@ class Endpoint
 	{
 		return $this->client;
 	}
+
 }
