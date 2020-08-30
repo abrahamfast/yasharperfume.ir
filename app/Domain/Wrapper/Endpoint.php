@@ -9,6 +9,7 @@ class Endpoint
 {
 	protected $client;
 	protected $query;
+
 	public function __construct()
 	{
 		$this->client = new SnapyClient(
