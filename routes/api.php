@@ -2,18 +2,30 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Acme\Service\OtpAuth;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/user/', function (Request $request) {
+    $code = OtpAuth::sendOtp($request->get('phone'));
+    return [
+    	'message' => 'otp sended',
+    	'code' => $code
+    ];
 });
+
+Route::post('/user/store', function (Request $request) {
+    return $request->all();
+});
+
+Route::post('/user/update', function (Request $request) {
+    return $request->all();
+});
+
+Route::post('/api/auth/send', function (Request $request) {
+    return $request->all();
+});
+
+Route::post('/api/auth/verfiy', function (Request $request) {
+    return $request->all();
+});
+
+
