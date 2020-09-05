@@ -2,17 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', 'PageController@index');
+Route::get('shop', 'ShopController@index');
+Route::get('shop/{id}/{slug}', 'ShopController@show');
+Route::get('register', 'UserController@create');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('asset/{slug}', function($slug){
+    $attachment = \App\Attachment::where('name', $slug)->first();
+        header('Pragma: public');
+        header('Cache-Control: max-age=360000, must-revalidate');
+        header('content-Type: ' . $attachment->type);
+        header('Content-Size: ' . $attachment->size);
+        readfile(env('ENDPOINT_UPLOAD_PATH') . $attachment->id );
+})->name('asset');
