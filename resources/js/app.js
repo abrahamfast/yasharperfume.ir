@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('shop-product-button-component', require('./components/ShopProductButtonComponent.vue').default);
+Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 
 
 if (process.env.MIX_ENV_MODE === 'production') {

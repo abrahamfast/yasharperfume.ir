@@ -6,6 +6,8 @@ Route::get('/', 'PageController@index');
 Route::get('shop', 'ShopController@index');
 Route::get('shop/{id}/{slug}', 'ShopController@show');
 
+Route::get('register', 'UserController@create');
+
 Route::get('asset/{slug}', function($slug){
     $attachment = \App\Attachment::where('name', $slug)->first();
         header('Pragma: public');
