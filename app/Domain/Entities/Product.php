@@ -7,6 +7,7 @@ use Acme\Wrapper\Endpoint;
 
 class Product extends Endpoint implements EntitiesInterface
 {
+
 	public static function list($filter = [])
 	{
 		return (new self)->endpoint()->request('GET', 'product', $filter);

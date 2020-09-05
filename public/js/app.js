@@ -1899,6 +1899,7 @@ module.exports = {
 
 /***/ }),
 
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegisterComponent.vue?vue&type=script&lang=js& ***!
@@ -1999,6 +2000,7 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 /***/ }),
+
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopProductButtonComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************!*\
@@ -19646,12 +19648,14 @@ Timeout.prototype.close = function() {
 exports.enroll = function(item, msecs) {
   clearTimeout(item._idleTimeoutId);
   item._idleTimeout = msecs;
+
 };
 
 exports.unenroll = function(item) {
   clearTimeout(item._idleTimeoutId);
   item._idleTimeout = -1;
 };
+
 
 exports._unrefActive = exports.active = function(item) {
   clearTimeout(item._idleTimeoutId);
@@ -19681,10 +19685,12 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterComponent.vue?vue&type=template&id=51f045bf&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegisterComponent.vue?vue&type=template&id=51f045bf& ***!
   \********************************************************************************************************************************************************************************************************************/
+
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19696,6 +19702,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
@@ -19923,11 +19930,13 @@ var staticRenderFns = [
     ])
   }
 ]
+
 render._withStripped = true
 
 
 
 /***/ }),
+
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopProductButtonComponent.vue?vue&type=template&id=d6a81586&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
@@ -19960,6 +19969,7 @@ render._withStripped = true
 
 
 /***/ }),
+
 
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
@@ -32149,7 +32159,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('shop-product-button-component', __webpack_require__(/*! ./components/ShopProductButtonComponent.vue */ "./resources/js/components/ShopProductButtonComponent.vue")["default"]);
+
 Vue.component('register-component', __webpack_require__(/*! ./components/RegisterComponent.vue */ "./resources/js/components/RegisterComponent.vue")["default"]);
+
 
 if (process.env.MIX_ENV_MODE === 'production') {
   Vue.config.devtools = false;
@@ -32195,6 +32207,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // });
 
 /***/ }),
+
 
 /***/ "./resources/js/components/RegisterComponent.vue":
 /*!*******************************************************!*\
@@ -32264,6 +32277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
+
 
 /***/ "./resources/js/components/ShopProductButtonComponent.vue":
 /*!****************************************************************!*\
