@@ -10,17 +10,17 @@ class Account extends Endpoint implements EntitiesInterface
 
 	public static function list($filter = [])
 	{
-		return (new self)->endpoint()->request('GET', 'product', $filter);
+		return (new self)->endpoint()->request('GET', 'Account', $filter);
 	}
 
 	public static function read($id, $filter = [])
 	{
-		return (new self)->endpoint()->request('GET', "product/$id", $filter);
+		return (new self)->endpoint()->request('GET', "account/$id", $filter);
 	}
 
-	public function create($data)
+	public static function create($data)
 	{
-
+		return (new self)->endpoint()->request('POST', 'account', $data);
 	}
 
 	public function update($id, $data)

@@ -40,7 +40,7 @@
                             <form v-on:submit.prevent="">
                                 <div class="auth-form__single-field space-mb--30 text-center">
                                     <label for="name" style="direction:rtl" >کد به شماره همراه شما ارسال شده است</label>
-                                    <input class="text-right" type="text" required v-model="user.code" id="name" placeholder="کد را وارد">
+                                    <input class="text-right" type="text" required v-model="code" id="name" placeholder="کد را وارد">
                                 </div>
                                 <button class="auth-form__button" @click="register">عضویت</button>
                             </form>
@@ -65,30 +65,39 @@
                     phone: '',
                     code: ''
                 },
-                state: false
+                state: false,
+                code: null,
+                codeRefresh: null,
+                codeHasError: false
             }
         },
         mounted() {
-            console.log('mounted register components')
+            let data = window.localStorage.getItem('account');
+            let account = JSON.parse(data);
+            if(account){
+                window.location = '/profile'
+            }
         },
         methods: {
             sendOtp(){
-            axios.post('api/auth/send', this.user)
+            axios.post('/api/auth/send', this.user)
                 .then((res)=>{
                     this.state = true
-                    console.log(res)
+                    this.codeRefresh = res.data.code
                 }).catch((err)=>{
 
                 });
             },
             register(){
-                axios.post('api/user', this.user)
-                .then((res)=>{
-                    this.state = true
-                    console.log(res)
-                }).catch((err)=>{
-
-                });
+                if (this.code !== this.codeRefresh) {
+                    axios.post('api/user', this.user)
+                        .then((res)=>{
+                            this.state = true
+                            window.localStorage.setItem('account', JSON.stringify(res.data));
+                            window.location = '/profile'
+                        }).catch((err)=>{
+                        });
+                }
             }
         }
     }
