@@ -1994,7 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
     register: function register() {
       var _this2 = this;
 
-      if (this.code !== this.codeRefresh) {
+      if (this.code === this.codeRefresh) {
         axios.post('api/user', this.user).then(function (res) {
           _this2.state = true;
           window.localStorage.setItem('account', JSON.stringify(res.data));
@@ -2321,7 +2321,7 @@ __webpack_require__.r(__webpack_exports__);
     register: function register() {
       var _this2 = this;
 
-      if (this.code !== this.codeRefresh) {
+      if (this.code === this.codeRefresh) {
         axios.post('api/user', this.user).then(function (res) {
           _this2.state = true;
           window.localStorage.setItem('account', JSON.stringify(res.data));

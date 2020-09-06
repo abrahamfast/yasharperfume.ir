@@ -85,7 +85,7 @@
                 });
             },
             register(){
-                if (this.code !== this.codeRefresh) {
+                if (this.code === this.codeRefresh) {
                     axios.post('api/user', this.user)
                         .then((res)=>{
                             this.state = true
