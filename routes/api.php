@@ -8,18 +8,24 @@ use Acme\Service\OtpAuth;
 
 
 Route::post('/user/{id}/attachment', function ($id, Request $request) {
-	$request->all();
-// 	field: "avatar"
-// file: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD"
-// name: "fdfd.jpg"
-// relatedType: "Account"
-// role: "Attachment"
-// size: 65040
-// type: "image/jpeg"
-	return Acme\Entities\Attachment::create($data);
-// 	https://panel.srv.yasharperfume.ir/api/v1/Account/5f54254f9bde340f9
-// 	avatarId: "5f5443bd6d063e266"
-// avatarName: "fdfd.jpg"
+
+	$data = [
+		'file' => $request->file('file')->get(),
+		'field' => 'avatar',
+		'name' => $request->file('file')->getClientOriginalName(),
+		'relatedType' => 'account',
+		"role" => "Attachment",
+		"size" => $request->file('file')->getSize(),
+		"type" => $request->file('file')->getMimeType(),
+	];
+
+
+	$attachment =  Acme\Entities\Attachment::create($data);
+
+	return Acme\Entities\Account::update($id, [
+		'avatarId' => $attachment['id'],
+		'avatarName' => $attachment['name']
+	]);
 });
 
 Route::get('/user/{id}', function ($id) {

@@ -2242,11 +2242,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['productId'],
   data: function data() {
     return {
-      account: null
+      account: null,
+      editAvatar: false,
+      file: null
     };
   },
   created: function created() {
@@ -2257,7 +2269,28 @@ __webpack_require__.r(__webpack_exports__);
       window.location = '/login';
     }
   },
-  methods: {}
+  methods: {
+    editAvatarView: function editAvatarView() {
+      this.editAvatar = true;
+    },
+    handleFileUpload: function handleFileUpload() {
+      this.file = this.$refs.file.files[0];
+    },
+    submitFile: function submitFile() {
+      var formData = new FormData();
+      formData.append('file', this.file);
+      axios.post('/api/user/' + this.account.id + '/attachment/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (res) {
+        console.log('SUCCESS!!');
+        window.localStorage.setItem('account', JSON.stringify(res.data));
+      })["catch"](function (err) {
+        console.log('FAILURE!!');
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -20733,12 +20766,53 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-12" }, [
             _c("div", { staticClass: "profile-header" }, [
-              _c("div", { staticClass: "profile-header__image" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "/asset/" + _vm.account.avatarName, alt: "" }
-                })
-              ]),
+              !_vm.editAvatar
+                ? _c("div", { staticClass: "profile-header__image" }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "/asset/" + _vm.account.avatarName,
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("a", { on: { click: _vm.editAvatarView } }, [
+                      _c("img", {
+                        staticClass: "injectable",
+                        attrs: { src: "assets/img/icons/edit.svg", alt: "" }
+                      })
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.editAvatar
+                ? _c("div", { staticClass: "profile-header__image" }, [
+                    _c("label", [
+                      _vm._v("آپلود آواتار\n                            "),
+                      _c("input", {
+                        ref: "file",
+                        attrs: { type: "file", id: "file" },
+                        on: {
+                          change: function($event) {
+                            return _vm.handleFileUpload()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.submitFile()
+                          }
+                        }
+                      },
+                      [_vm._v("ارسال")]
+                    )
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",

@@ -4,9 +4,19 @@
             <div class="row">
                 <div class="col-12">
                     <div class="profile-header">
-                        <div class="profile-header__image">
+                        <div class="profile-header__image" v-if="!editAvatar">
                             <img v-bind:src="'/asset/' + account.avatarName" class="img-fluid" alt="">
+                             <a @click="editAvatarView">
+                                <img src="assets/img/icons/edit.svg" class="injectable" alt="">
+                            </a>
                         </div>
+                        <div class="profile-header__image" v-if="editAvatar">
+                            <label>آپلود آواتار
+                                <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+                            </label>
+                            <button v-on:click="submitFile()">ارسال</button>
+                        </div>
+
                         <div class="profile-header__content space-mt--10">
                             <h3 class="name space-mb--15 text-right">{{ account.name }}</h3>
                             <div class="profile-info space-mb--10">
@@ -51,7 +61,9 @@
         ],
         data(){
             return {
-                account: null
+                account: null,
+                editAvatar: false,
+                file: null
             }
         },
         created() {
@@ -62,7 +74,22 @@
             }
         },
         methods: {
-
+            editAvatarView(){
+                this.editAvatar = true
+            },
+            handleFileUpload(){
+                this.file = this.$refs.file.files[0];
+            },
+            submitFile(){
+                let formData = new FormData();
+                formData.append('file', this.file);
+                axios.post( '/api/user/' + this.account.id + '/attachment/', formData, {headers: { 'Content-Type': 'multipart/form-data' }}).then( (res) =>{
+                     console.log('SUCCESS!!');
+                     window.localStorage.setItem('account', JSON.stringify(res.data));
+                }).catch((err) => {
+                    console.log('FAILURE!!');
+                })
+            }
         }
     }
 </script>
