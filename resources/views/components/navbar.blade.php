@@ -7,7 +7,7 @@
                     <p class="name">Don Normane <span class="id">ID MD 4350</span></p>
                 </div>
             </div>
-            <div class="offcanvas-navigation-wrapper space-mt--40">
+            <div class="offcanvas-navigation-wrapper space-mt--10">
                 <ul class="offcanvas-navigation">
                     <li>
                             <a href="/profile">پروفایل من</a>
