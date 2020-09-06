@@ -4,8 +4,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Acme\Service\OtpAuth;
 
+Route::get('/user/{id}', function ($id) {
+	return Acme\Entities\Account::read($id);
+});
+
 Route::put('/user', function (Request $request) {
-	return $request->all();
+	$request->validate(['id' => 'required']);
+	Acme\Entities\Account::update($request->get('id'), $request->all());
 });
 
 Route::post('/user', function (Request $request) {

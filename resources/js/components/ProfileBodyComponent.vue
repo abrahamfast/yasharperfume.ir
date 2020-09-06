@@ -14,15 +14,19 @@
                                     <div class="profile-info-block__title text-right">شماره همراه</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__value text-left">{{ account.email }}</div>
+                                    <div class="profile-info-block__value text-left">{{ account.emailAddress }}</div>
                                     <div class="profile-info-block__title text-right">ایمیل</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__value text-left">{{ account.address }}</div>
+                                    <div class="profile-info-block__value text-left">{{ account.shippingAddressCity }}</div>
+                                    <div class="profile-info-block__title text-right">شهر سکونت</div>
+                                </div>
+                                <div class="profile-info-block">
+                                    <div class="profile-info-block__value text-left">{{ account.shippingAddressStreet }}</div>
                                     <div class="profile-info-block__title text-right">آدرس دریافت کننده</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__value text-left">{{ account.phoneNumber }}</div>
+                                    <div class="profile-info-block__value text-left">0</div>
                                     <div class="profile-info-block__title text-right">تعداد خرید</div>
                                 </div>
                                 <div class="profile-info-block">
@@ -50,29 +54,30 @@
                         <!-- edit profile form -->
                         <div class="edit-profile-form">
                             <form v-on:submit.prevent="">
-                                <div class="edit-profile-form__single-field space-mb--30">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" name="fullName" id="fullName" placeholder="Enter Full Name">
+                                <div class="edit-profile-form__single-field space-mb--30 text-right">
+                                    <label for="fullName">نام شما</label>
+                                    <input class="text-right" type="text" required v-model="account.name" id="fullName" placeholder="نام شما">
                                 </div>
-                                <div class="edit-profile-form__single-field space-mb--30">
-                                    <label for="userName">User Name</label>
-                                    <input type="text" name="userName" id="userName" placeholder="Enter User Name">
+                                <div class="edit-profile-form__single-field space-mb--30 text-right">
+                                    <label for="phoneNo">شماره همراه</label>
+                                    <input class="text-right" type="text" required v-model="account.phoneNumber" id="phoneNo" placeholder="شماره همراه">
                                 </div>
-                                <div class="edit-profile-form__single-field space-mb--30">
-                                    <label for="phoneNo">Phone</label>
-                                    <input type="text" name="phoneNo" id="phoneNo" placeholder="Enter Phone Number">
+                                <div class="edit-profile-form__single-field space-mb--30 text-right">
+                                    <label for="emailAddress">ایمیل</label>
+                                    <input class="text-right" type="text" v-model="account.emailAddress" id="emailAddress"
+                                        placeholder="آدرس ایمیا شما">
                                 </div>
-                                <div class="edit-profile-form__single-field space-mb--30">
-                                    <label for="emailAddress">Email Address</label>
-                                    <input type="text" name="emailAddress" id="emailAddress"
-                                        placeholder="Enter Email Address">
+                                <div class="edit-profile-form__single-field space-mb--30 text-right">
+                                    <label for="shippingAddressCity">شهر</label>
+                                    <input class="text-right" type="text" v-model="account.shippingAddressCity" id="shippingAddressCity"
+                                        placeholder="آدرس ایمیا شما">
                                 </div>
-                                <div class="edit-profile-form__single-field space-mb--30">
-                                    <label for="shippingAddress">Shipping Address</label>
-                                    <textarea name="shippingAddress" id="shippingAddress" cols="30" rows="5"
-                                        placeholder="Enter Shipping Address"></textarea>
+                                <div class="edit-profile-form__single-field space-mb--30 text-right">
+                                    <label for="shippingAddress">آدرس </label>
+                                    <input class="text-right" v-model="account.shippingAddressStreet" id="shippingAddress"
+                                        placeholder="آدرس دریافت کننده کالا">
                                 </div>
-                                <button class="edit-profile-form__button" @click="update">Update</button>
+                                <button class="edit-profile-form__button" @click="update">بروز رسانی</button>
                             </form>
                         </div>
                     </div>
@@ -93,11 +98,20 @@
             }
         },
         created() {
-            let account = window.localStorage.getItem('account');
-            this.account = JSON.parse(account);
-            if(!this.account){
+            let data = window.localStorage.getItem('account');
+            let account = JSON.parse(data);
+            this.account = account
+            if(!account){
                 window.location = '/login'
+                return;
             }
+
+        },
+        mounted(){
+            axios.get('/api/user/'+this.account.id).then((res) => {
+                window.localStorage.setItem('account', JSON.stringify(res.data));
+                this.account = res.data
+            });
         },
         methods: {
             editProfile(){
@@ -105,7 +119,7 @@
             },
             update(){
                 axios.put('/api/user', this.account).then((res)=>{
-                    console.log(res);
+                    window.localStorage.setItem('account', JSON.stringify(this.account));
                     this.edit = false
                 })
             }

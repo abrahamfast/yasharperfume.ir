@@ -23,9 +23,9 @@ class Account extends Endpoint implements EntitiesInterface
 		return (new self)->endpoint()->request('POST', 'account', $data);
 	}
 
-	public function update($id, $data)
+	public static function update($id, $data)
 	{
-
+		return (new self)->endpoint()->request('PUT', "account/{$id}", $data);
 	}
 
 	public function delete($id)

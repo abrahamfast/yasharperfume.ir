@@ -2099,6 +2099,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['productId'],
   data: function data() {
@@ -2108,23 +2113,33 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var account = window.localStorage.getItem('account');
-    this.account = JSON.parse(account);
+    var data = window.localStorage.getItem('account');
+    var account = JSON.parse(data);
+    this.account = account;
 
-    if (!this.account) {
+    if (!account) {
       window.location = '/login';
+      return;
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/user/' + this.account.id).then(function (res) {
+      window.localStorage.setItem('account', JSON.stringify(res.data));
+      _this.account = res.data;
+    });
   },
   methods: {
     editProfile: function editProfile() {
       this.edit = true;
     },
     update: function update() {
-      var _this = this;
+      var _this2 = this;
 
       axios.put('/api/user', this.account).then(function (res) {
-        console.log(res);
-        _this.edit = false;
+        window.localStorage.setItem('account', JSON.stringify(_this2.account));
+        _this2.edit = false;
       });
     }
   }
@@ -20260,7 +20275,7 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "profile-info-block__value text-left" },
-                      [_vm._v(_vm._s(_vm.account.email))]
+                      [_vm._v(_vm._s(_vm.account.emailAddress))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -20274,7 +20289,21 @@ var render = function() {
                     _c(
                       "div",
                       { staticClass: "profile-info-block__value text-left" },
-                      [_vm._v(_vm._s(_vm.account.address))]
+                      [_vm._v(_vm._s(_vm.account.shippingAddressCity))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("شهر سکونت")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "profile-info-block" }, [
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [_vm._v(_vm._s(_vm.account.shippingAddressStreet))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -20284,19 +20313,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "profile-info-block" }, [
-                    _c(
-                      "div",
-                      { staticClass: "profile-info-block__value text-left" },
-                      [_vm._v(_vm._s(_vm.account.phoneNumber))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "profile-info-block__title text-right" },
-                      [_vm._v("تعداد خرید")]
-                    )
-                  ]),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c("div", { staticClass: "profile-info-block" }, [
                     _c(
@@ -20320,7 +20337,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
+                _vm._m(1)
               ])
             ])
           ])
@@ -20342,15 +20359,219 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._m(1),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "edit-profile-form__single-field space-mb--30 text-right"
+                      },
+                      [
+                        _c("label", { attrs: { for: "fullName" } }, [
+                          _vm._v("نام شما")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.account.name,
+                              expression: "account.name"
+                            }
+                          ],
+                          staticClass: "text-right",
+                          attrs: {
+                            type: "text",
+                            required: "",
+                            id: "fullName",
+                            placeholder: "نام شما"
+                          },
+                          domProps: { value: _vm.account.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.account, "name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "edit-profile-form__single-field space-mb--30 text-right"
+                      },
+                      [
+                        _c("label", { attrs: { for: "phoneNo" } }, [
+                          _vm._v("شماره همراه")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.account.phoneNumber,
+                              expression: "account.phoneNumber"
+                            }
+                          ],
+                          staticClass: "text-right",
+                          attrs: {
+                            type: "text",
+                            required: "",
+                            id: "phoneNo",
+                            placeholder: "شماره همراه"
+                          },
+                          domProps: { value: _vm.account.phoneNumber },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.account,
+                                "phoneNumber",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm._m(3),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "edit-profile-form__single-field space-mb--30 text-right"
+                      },
+                      [
+                        _c("label", { attrs: { for: "emailAddress" } }, [
+                          _vm._v("ایمیل")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.account.emailAddress,
+                              expression: "account.emailAddress"
+                            }
+                          ],
+                          staticClass: "text-right",
+                          attrs: {
+                            type: "text",
+                            id: "emailAddress",
+                            placeholder: "آدرس ایمیا شما"
+                          },
+                          domProps: { value: _vm.account.emailAddress },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.account,
+                                "emailAddress",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm._m(4),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "edit-profile-form__single-field space-mb--30 text-right"
+                      },
+                      [
+                        _c("label", { attrs: { for: "shippingAddressCity" } }, [
+                          _vm._v("شهر")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.account.shippingAddressCity,
+                              expression: "account.shippingAddressCity"
+                            }
+                          ],
+                          staticClass: "text-right",
+                          attrs: {
+                            type: "text",
+                            id: "shippingAddressCity",
+                            placeholder: "آدرس ایمیا شما"
+                          },
+                          domProps: { value: _vm.account.shippingAddressCity },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.account,
+                                "shippingAddressCity",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "edit-profile-form__single-field space-mb--30 text-right"
+                      },
+                      [
+                        _c("label", { attrs: { for: "shippingAddress" } }, [
+                          _vm._v("آدرس ")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.account.shippingAddressStreet,
+                              expression: "account.shippingAddressStreet"
+                            }
+                          ],
+                          staticClass: "text-right",
+                          attrs: {
+                            id: "shippingAddress",
+                            placeholder: "آدرس دریافت کننده کالا"
+                          },
+                          domProps: {
+                            value: _vm.account.shippingAddressStreet
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.account,
+                                "shippingAddressStreet",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -20358,7 +20579,7 @@ var render = function() {
                         staticClass: "edit-profile-form__button",
                         on: { click: _vm.update }
                       },
-                      [_vm._v("Update")]
+                      [_vm._v("بروز رسانی")]
                     )
                   ]
                 )
@@ -20374,6 +20595,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "profile-info-block" }, [
+      _c("div", { staticClass: "profile-info-block__value text-left" }, [
+        _vm._v("0")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "profile-info-block__title text-right" }, [
+        _vm._v("تعداد خرید")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "profile-info-table" }, [
       _c("div", { staticClass: "profile-info-block" }, [
         _c("div", { staticClass: "profile-info-block__value text-left" }, [
@@ -20385,116 +20620,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "edit-profile-form__single-field space-mb--30" },
-      [
-        _c("label", { attrs: { for: "fullName" } }, [_vm._v("Full Name")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "text",
-            name: "fullName",
-            id: "fullName",
-            placeholder: "Enter Full Name"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "edit-profile-form__single-field space-mb--30" },
-      [
-        _c("label", { attrs: { for: "userName" } }, [_vm._v("User Name")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "text",
-            name: "userName",
-            id: "userName",
-            placeholder: "Enter User Name"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "edit-profile-form__single-field space-mb--30" },
-      [
-        _c("label", { attrs: { for: "phoneNo" } }, [_vm._v("Phone")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "text",
-            name: "phoneNo",
-            id: "phoneNo",
-            placeholder: "Enter Phone Number"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "edit-profile-form__single-field space-mb--30" },
-      [
-        _c("label", { attrs: { for: "emailAddress" } }, [
-          _vm._v("Email Address")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "text",
-            name: "emailAddress",
-            id: "emailAddress",
-            placeholder: "Enter Email Address"
-          }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "edit-profile-form__single-field space-mb--30" },
-      [
-        _c("label", { attrs: { for: "shippingAddress" } }, [
-          _vm._v("Shipping Address")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          attrs: {
-            name: "shippingAddress",
-            id: "shippingAddress",
-            cols: "30",
-            rows: "5",
-            placeholder: "Enter Shipping Address"
-          }
-        })
-      ]
-    )
   }
 ]
 render._withStripped = true

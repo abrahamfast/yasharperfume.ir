@@ -9,8 +9,8 @@ interface EntitiesInterface
 
 	public static function read(string $id, ?array $filter = []);
 
-  
-	public function update(string $id, ?array $data);
+
+	public static function update(string $id, ?array $data);
 
 	public function delete(string $id);
 }
