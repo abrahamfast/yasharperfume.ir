@@ -19,7 +19,8 @@ class OtpAuth
 	public static function sendOtp($receptor)
 	{
 		$token = rand(1357, 9457);
-		// (new self)->getClient()->VerifyLookup($receptor, $token, "", "", env('ENDPOINT_OTP_TEMNAME'), 'sms');
+
+		(new self)->getClient()->VerifyLookup($receptor, $token, "", "", env('ENDPOINT_OTP_TEMNAME'), 'sms');
 
 		return $token;
 	}
