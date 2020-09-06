@@ -2099,19 +2099,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['productId'],
   data: function data() {
@@ -20242,81 +20229,94 @@ var render = function() {
               _c("div", { staticClass: "profile-body" }, [
                 _c("div", { staticClass: "profile-info-table space-mb--40" }, [
                   _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("Full Name")
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [_vm._v(_vm._s(_vm.account.name))]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _vm._v(_vm._s(_vm.account.name))
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("نام شما")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("User Name")
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [_vm._v(_vm._s(_vm.account.phoneNumber))]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _vm._v(_vm._s(_vm.account.userName))
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("شماره همراه")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("Phone")
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [_vm._v(_vm._s(_vm.account.email))]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _vm._v(_vm._s(_vm.account.phoneNumber))
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("ایمیل")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("E-mail Address")
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [_vm._v(_vm._s(_vm.account.address))]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _vm._v(_vm._s(_vm.account.email))
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("آدرس دریافت کننده")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("Shipping Address")
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [_vm._v(_vm._s(_vm.account.phoneNumber))]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _vm._v(
-                        _vm._s(_vm.account.address) +
-                          "\n                            "
-                      )
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("تعداد خرید")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("Total Order")
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__value text-left" },
+                      [
+                        _c("a", { on: { click: _vm.editProfile } }, [
+                          _c("img", {
+                            staticClass: "injectable",
+                            attrs: { src: "assets/img/icons/edit.svg", alt: "" }
+                          })
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _vm._v(_vm._s(_vm.account.phoneNumber))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "profile-info-block" }, [
-                    _c("div", { staticClass: "profile-info-block__title" }, [
-                      _vm._v("ویرایش پروفایل")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "profile-info-block__value" }, [
-                      _c("a", { on: { click: _vm.editProfile } }, [
-                        _c("img", {
-                          staticClass: "injectable",
-                          attrs: { src: "assets/img/icons/edit.svg", alt: "" }
-                        })
-                      ])
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "profile-info-block__title text-right" },
+                      [_vm._v("ویرایش پروفایل")]
+                    )
                   ])
                 ]),
                 _vm._v(" "),
@@ -20376,29 +20376,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "profile-info-table" }, [
       _c("div", { staticClass: "profile-info-block" }, [
-        _c("div", { staticClass: "profile-info-block__title" }, [
-          _vm._v("Help Center")
+        _c("div", { staticClass: "profile-info-block__value text-left" }, [
+          _vm._v("09032324184")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "profile-info-block__value" }, [
-          _vm._v("62256")
+        _c("div", { staticClass: "profile-info-block__title text-right" }, [
+          _vm._v("مرکز پشتیبانی")
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "profile-info-block" }, [
-        _c("div", { staticClass: "profile-info-block__title" }, [
-          _vm._v("To be Shiped")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "profile-info-block__value" }, [_vm._v("05")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "profile-info-block" }, [
-        _c("div", { staticClass: "profile-info-block__title" }, [
-          _vm._v("Review")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "profile-info-block__value" }, [_vm._v("10")])
       ])
     ])
   },

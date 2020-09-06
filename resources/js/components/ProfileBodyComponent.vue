@@ -6,51 +6,38 @@
                         <div class="profile-body">
                             <div class="profile-info-table space-mb--40">
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">Full Name</div>
-                                    <div class="profile-info-block__value">{{ account.name }}</div>
+                                    <div class="profile-info-block__value text-left">{{ account.name }}</div>
+                                    <div class="profile-info-block__title text-right">نام شما</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">User Name</div>
-                                    <div class="profile-info-block__value">{{ account.userName }}</div>
+                                    <div class="profile-info-block__value text-left">{{ account.phoneNumber }}</div>
+                                    <div class="profile-info-block__title text-right">شماره همراه</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">Phone</div>
-                                    <div class="profile-info-block__value">{{ account.phoneNumber }}</div>
+                                    <div class="profile-info-block__value text-left">{{ account.email }}</div>
+                                    <div class="profile-info-block__title text-right">ایمیل</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">E-mail Address</div>
-                                    <div class="profile-info-block__value">{{ account.email }}</div>
+                                    <div class="profile-info-block__value text-left">{{ account.address }}</div>
+                                    <div class="profile-info-block__title text-right">آدرس دریافت کننده</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">Shipping Address</div>
-                                    <div class="profile-info-block__value">{{ account.address }}
-                                    </div>
+                                    <div class="profile-info-block__value text-left">{{ account.phoneNumber }}</div>
+                                    <div class="profile-info-block__title text-right">تعداد خرید</div>
                                 </div>
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">Total Order</div>
-                                    <div class="profile-info-block__value">{{ account.phoneNumber }}</div>
-                                </div>
-                                <div class="profile-info-block">
-                                    <div class="profile-info-block__title">ویرایش پروفایل</div>
-                                    <div class="profile-info-block__value">
+                                     <div class="profile-info-block__value text-left">
                                         <a @click="editProfile">
                                             <img src="assets/img/icons/edit.svg" class="injectable" alt="">
                                         </a>
                                     </div>
+                                    <div class="profile-info-block__title text-right">ویرایش پروفایل</div>
                                 </div>
                             </div>
                             <div class="profile-info-table">
                                 <div class="profile-info-block">
-                                    <div class="profile-info-block__title">Help Center</div>
-                                    <div class="profile-info-block__value">62256</div>
-                                </div>
-                                <div class="profile-info-block">
-                                    <div class="profile-info-block__title">To be Shiped</div>
-                                    <div class="profile-info-block__value">05</div>
-                                </div>
-                                <div class="profile-info-block">
-                                    <div class="profile-info-block__title">Review</div>
-                                    <div class="profile-info-block__value">10</div>
+                                    <div class="profile-info-block__value text-left">09032324184</div>
+                                    <div class="profile-info-block__title text-right">مرکز پشتیبانی</div>
                                 </div>
                             </div>
                         </div>
