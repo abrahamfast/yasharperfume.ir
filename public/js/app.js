@@ -20687,7 +20687,11 @@ var render = function() {
     _c("div", { staticClass: "profile-card__image space-mb--10" }, [
       _c("img", {
         staticClass: "img-fluid",
-        attrs: { src: "/asset/" + _vm.account.avatarName, alt: "" }
+        attrs: {
+          width: "100",
+          src: "/asset/" + _vm.account.avatarName,
+          alt: ""
+        }
       })
     ]),
     _vm._v(" "),

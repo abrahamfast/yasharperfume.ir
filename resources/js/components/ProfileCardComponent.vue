@@ -1,7 +1,7 @@
 <template>
     <div class="profile-card text-center">
         <div class="profile-card__image space-mb--10">
-            <img v-bind:src="'/asset/' + account.avatarName" class="img-fluid" alt="">
+            <img width="100" v-bind:src="'/asset/' + account.avatarName" class="img-fluid" alt="">
         </div>
         <div class="profile-card__content">
             <p class="name">{{ account.name }} <span class="id">ID MD 4350</span></p>
