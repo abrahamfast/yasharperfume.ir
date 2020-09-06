@@ -19,7 +19,7 @@ class Product extends Endpoint implements EntitiesInterface
 	}
 
 
-	public function update($id, $data)
+	public static function update($id, $data)
 	{
 
 	}
