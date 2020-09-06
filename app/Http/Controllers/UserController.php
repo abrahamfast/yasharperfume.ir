@@ -13,7 +13,12 @@ class UserController extends Controller
 
 	public function login()
 	{
-		return view('');
+		return view('login');
+	}
+
+	public function profile()
+	{
+		return view('profile');
 	}
 
 }

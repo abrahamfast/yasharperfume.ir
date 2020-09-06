@@ -21,6 +21,8 @@ window.Vue = require('vue');
 
 Vue.component('shop-product-button-component', require('./components/ShopProductButtonComponent.vue').default);
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
+Vue.component('profile-header-component', require('./components/ProfileHeaderComponent.vue').default);
+Vue.component('profile-body-component', require('./components/ProfileBodyComponent.vue').default);
 
 
 if (process.env.MIX_ENV_MODE === 'production') {
@@ -35,7 +37,8 @@ if (process.env.MIX_ENV_MODE === 'production') {
 const app = new Vue({
     el: '#app',
     data: {
-    	cartList: []
+    	cartList: [],
+    	globalAccount: false
     }
 
 });
