@@ -23,6 +23,7 @@ Vue.component('shop-product-button-component', require('./components/ShopProduct
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 Vue.component('profile-header-component', require('./components/ProfileHeaderComponent.vue').default);
 Vue.component('profile-body-component', require('./components/ProfileBodyComponent.vue').default);
+Vue.component('login-component', require('./components/LoginComponent.vue').default);
 
 
 if (process.env.MIX_ENV_MODE === 'production') {

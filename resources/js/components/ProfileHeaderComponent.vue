@@ -57,6 +57,9 @@
         created() {
             let account = window.localStorage.getItem('account');
             this.account = JSON.parse(account);
+            if(!this.account){
+                window.location = '/login'
+            }
         },
         methods: {
 

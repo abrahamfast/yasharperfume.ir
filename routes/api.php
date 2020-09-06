@@ -10,7 +10,6 @@ Route::put('/user', function (Request $request) {
 
 Route::post('/user', function (Request $request) {
 	$request->validate([
-		'name' => 'required',
 		'phone' => 'required'
 	]);
 
@@ -24,6 +23,10 @@ Route::post('/user', function (Request $request) {
 	if($existAccount['total']){
 		return $existAccount['list'][0];
 	}
+
+	$request->validate([
+		'name' => 'required',
+	]);
 
 	$account = Acme\Entities\Account::create([
 		'name' => $request->get('name'),
