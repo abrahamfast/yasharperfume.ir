@@ -24,6 +24,7 @@ Vue.component('register-component', require('./components/RegisterComponent.vue'
 Vue.component('profile-header-component', require('./components/ProfileHeaderComponent.vue').default);
 Vue.component('profile-body-component', require('./components/ProfileBodyComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
+Vue.component('profile-card-component', require('./components/ProfileCardComponent.vue').default);
 
 
 if (process.env.MIX_ENV_MODE === 'production') {

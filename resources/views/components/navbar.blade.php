@@ -1,12 +1,5 @@
         <div class="offcanvas-menu" id="offcanvas-menu">
-            <div class="profile-card text-center">
-                <div class="profile-card__image space-mb--10">
-                    <img src="assets/img/profile.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="profile-card__content">
-                    <p class="name">Don Normane <span class="id">ID MD 4350</span></p>
-                </div>
-            </div>
+            <profile-card-component></profile-card-component>
             <div class="offcanvas-navigation-wrapper space-mt--10">
                 <ul class="offcanvas-navigation">
                     <li>
