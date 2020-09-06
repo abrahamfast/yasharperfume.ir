@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <div class="profile-header">
                         <div class="profile-header__image">
-                            <img src="/assets/img/profile.jpg" class="img-fluid" alt="">
+                            <img v-bind:src="'/asset/' + account.avatarName" class="img-fluid" alt="">
                         </div>
                         <div class="profile-header__content space-mt--10">
                             <h3 class="name space-mb--15 text-right">{{ account.name }}</h3>

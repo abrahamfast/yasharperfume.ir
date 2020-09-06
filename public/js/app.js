@@ -1994,7 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
     register: function register() {
       var _this2 = this;
 
-      if (this.code === this.codeRefresh) {
+      if (this.code == this.codeRefresh) {
         axios.post('api/user', this.user).then(function (res) {
           _this2.state = true;
           window.localStorage.setItem('account', JSON.stringify(res.data));
@@ -2321,7 +2321,7 @@ __webpack_require__.r(__webpack_exports__);
     register: function register() {
       var _this2 = this;
 
-      if (this.code === this.codeRefresh) {
+      if (this.code == this.codeRefresh) {
         axios.post('api/user', this.user).then(function (res) {
           _this2.state = true;
           window.localStorage.setItem('account', JSON.stringify(res.data));
@@ -20098,7 +20098,7 @@ var render = function() {
                           staticClass: "auth-form__button",
                           on: { click: _vm.sendOtp }
                         },
-                        [_vm._v("عضویت")]
+                        [_vm._v("ورود به پنل")]
                       )
                     ]
                   )
@@ -20170,7 +20170,7 @@ var render = function() {
                           staticClass: "auth-form__button",
                           on: { click: _vm.register }
                         },
-                        [_vm._v("عضویت")]
+                        [_vm._v("ورود")]
                       )
                     ]
                   )
@@ -20651,7 +20651,12 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-12" }, [
             _c("div", { staticClass: "profile-header" }, [
-              _vm._m(0),
+              _c("div", { staticClass: "profile-header__image" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/asset/" + _vm.account.avatarName, alt: "" }
+                })
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -20661,9 +20666,9 @@ var render = function() {
                     _vm._v(_vm._s(_vm.account.name))
                   ]),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _vm._m(0),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(1)
                 ]
               )
             ])
@@ -20674,17 +20679,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "profile-header__image" }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "/assets/img/profile.jpg", alt: "" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

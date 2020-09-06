@@ -26,7 +26,7 @@
                                 <div class="auth-form__single-field space-mb--40">
                                     <p class="text-right auth-form__info-text"><a href="/register">پنل کاربری جدید</a> آیا اشتراک ندارید؟ </p>
                                 </div>
-                                <button class="auth-form__button" @click="sendOtp">عضویت</button>
+                                <button class="auth-form__button" @click="sendOtp">ورود به پنل</button>
                             </form>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                     <label for="name" style="direction:rtl" >کد به شماره همراه شما ارسال شده است</label>
                                     <input class="text-right" type="text" required v-model="code" id="name" placeholder="کد را وارد">
                                 </div>
-                                <button class="auth-form__button" @click="register">عضویت</button>
+                                <button class="auth-form__button" @click="register">ورود</button>
                             </form>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                 });
             },
             register(){
-                if (this.code === this.codeRefresh) {
+                if (this.code == this.codeRefresh) {
                     axios.post('api/user', this.user)
                         .then((res)=>{
                             this.state = true
